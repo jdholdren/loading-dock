@@ -1,4 +1,4 @@
-use loading_dock::{Config, Result, WithMessage};
+use client::{Config, Result, WithMessage};
 use std::{env, fs, io};
 
 const USAGE: &str = "usage: ldock {arg}";
@@ -20,7 +20,7 @@ fn main() {
             if args.len() < 2 {
                 panic!("usage: ldock load {{filename}}")
             }
-            loading_dock::stage_file(&mut cfg, &args[1])
+            client::stage_file(&mut cfg, &args[1])
         }
         "ls" => {
             for filename in cfg.staged {
